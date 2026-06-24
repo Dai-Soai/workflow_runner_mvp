@@ -13,7 +13,7 @@ steps:
   - id: summarize
     action: mock_summary
     params:
-      max_sentences: 3
+      max_sentences: 2
 
   - id: export
     action: write_json

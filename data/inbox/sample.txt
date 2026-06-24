@@ -1,0 +1,1 @@
+RADAR Services is a utility-first system. Workflow Runner can execute YAML workflows. File Watcher can trigger workflows later.
