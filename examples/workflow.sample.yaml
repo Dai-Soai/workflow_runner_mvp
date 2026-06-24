@@ -1,0 +1,21 @@
+workflow_id: sample_summary_workflow
+version: "0.1.0"
+
+input:
+  path: data/inbox/sample.txt
+
+steps:
+  - id: read_file
+    action: read_text
+    params:
+      encoding: utf-8
+
+  - id: summarize
+    action: mock_summary
+    params:
+      max_sentences: 3
+
+  - id: export
+    action: write_json
+    params:
+      output_path: data/output/summary.json
