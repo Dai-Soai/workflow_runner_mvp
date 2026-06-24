@@ -5,6 +5,7 @@ import sys
 
 from workflow_runner.executor import execute_workflow
 from workflow_runner.loader import WorkflowLoadError, load_workflow
+from workflow_runner.logger import write_execution_log
 from workflow_runner.validator import WorkflowValidationError
 
 
@@ -24,6 +25,10 @@ def build_parser() -> argparse.ArgumentParser:
         "workflow_file",
         help="Path to workflow YAML file.",
     )
+    run_parser.add_argument(
+        "--log-json",
+        help="Write workflow execution log to a JSON file.",
+    )
 
     return parser
 
@@ -42,6 +47,10 @@ def run_command(args: argparse.Namespace) -> int:
     print(f"Workflow completed: {result.workflow_id}")
     print(f"Status: {result.status}")
     print(f"Steps executed: {result.steps_executed}")
+
+    if args.log_json:
+        log_info = write_execution_log(result, args.log_json)
+        print(f"Execution log written: {log_info['log_path']}")
 
     if result.error:
         print(f"Error: {result.error}", file=sys.stderr)
