@@ -168,6 +168,7 @@ No direct package dependency is introduced between Utility #7 and Utility #8.
 
 ## Project Structure
 
+```text
 workflow_runner_mvp/
 ├── README.md
 ├── pyproject.toml
@@ -194,6 +195,7 @@ workflow_runner_mvp/
     ├── test_loader.py
     ├── test_logger.py
     └── test_validator.py
+```
 
 ## Development
 
