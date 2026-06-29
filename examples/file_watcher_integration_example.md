@@ -18,6 +18,22 @@ Workflow Runner executes workflow YAML
 Workflow Runner writes execution log JSON
 ```
 
+## Contract Boundary
+
+Utility #7 owns:
+
+- file detection
+- file event JSON
+- inbox/archive movement
+- file watcher event log
+
+Utility #8 owns:
+
+- workflow YAML loading
+- workflow validation
+- sequential step execution
+- workflow execution log JSON
+
 ## Locked Decision
 
 No direct package dependency is introduced between Utility #7 and Utility #8.
